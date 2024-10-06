@@ -2,7 +2,6 @@ Django>=3.2,<4.0  # Specify the Django version you want to use
 djangorestframework  # If you're using Django REST Framework for APIs
 psycopg2-binary  # If you're using PostgreSQL as your database
 # or
-mysqlclient  # If you're using MySQL as your database
 # or
 sqlite3  # SQLite is included with Python, no need to install separately
 
