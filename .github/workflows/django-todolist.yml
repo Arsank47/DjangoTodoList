@@ -13,10 +13,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Login to Docker Registry
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Login to GHCR
+        run: echo "${{ secrets.PAT_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
         env:
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
 
       - name: Stop and remove old containers
         run: |
@@ -28,18 +28,18 @@ jobs:
         continue-on-error: true
 
       - name: Build Docker image
-        run: docker build -t ghcr.io/<your-username>/todolist:latest .
-        working-directory: /path/to/your/django/todolist
+        run: docker build -t ghcr.io/arsank47/todolist:latest .
+        working-directory: /path/to/your/django/todolist # UPDATE THIS PATH
 
       - name: Push Docker image to GHCR
-        run: docker push ghcr.io/<your-username>/todolist:latest
+        run: docker push ghcr.io/arsank47/todolist:latest
 
       - name: Pull Docker image from GHCR (optional)
-        run: docker pull ghcr.io/<your-username>/todolist:latest  # Optional step for verification
+        run: docker pull ghcr.io/arsank47/todolist:latest  # Optional step for verification
 
       - name: Run container with restart
         run: |
-          docker run --name todolist -d --restart=always -p 8000:8000 ghcr.io/<your-username>/todolist:latest
+          docker run --name todolist -d --restart=always -p 8000:8000 ghcr.io/arsank47/todolist:latest
 
       - name: Show Docker containers
         run: docker ps
