@@ -29,7 +29,7 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t ghcr.io/arsank47/todolist:latest .
-        working-directory: /path/to/your/django/todolist # UPDATE THIS PATH
+        working-directory: /home/runner/work/DjangoTodoList/DjangoTodoList # UPDATE THIS PATH
 
       - name: Push Docker image to GHCR
         run: docker push ghcr.io/arsank47/todolist:latest
