@@ -17,8 +17,11 @@ COPY requirements.txt .
 # Install the Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the entire project
+# Copy the entire project, including the todo_list directory
 COPY . .
+
+# Set the working directory to the todo_list directory
+WORKDIR /app/todo_list
 
 # Expose the port the app runs on
 EXPOSE 8001
