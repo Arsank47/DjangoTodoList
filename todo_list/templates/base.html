@@ -3,13 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
+    <title>Task Master</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Balanced Theme */
+        body {
+            background: #eaf4f4; /* Soft muted teal background */
+            color: #333333; /* Dark gray text for good readability */
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background: #ffffff; /* White navbar */
+            border-bottom: 3px solid #5cbdb9; /* Soft teal accent */
+            padding: 0.8rem 1.2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .navbar-brand {
+            font-size: 1.4rem;
+            color: #5cbdb9 !important; /* Teal accent color */
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .navbar-brand:hover {
+            color: #4aa5a3 !important; /* Slightly darker teal on hover */
+        }
+
+        .nav-link {
+            color: #333333 !important; /* Neutral dark gray */
+            font-weight: bold;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #5cbdb9 !important; /* Teal accent on hover */
+        }
+
+        .container {
+            margin-top: 50px;
+            max-width: 800px;
+            background: #ffffff; /* Clean white card background */
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); /* Soft shadow */
+            color: #333333; /* Ensure text is readable */
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #ffffff; /* Light footer */
+            color: #5cbdb9;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 3px solid #5cbdb9; /* Accent border */
+        }
+
+        footer a {
+            color: #4aa5a3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #5cbdb9;
+            text-decoration: underline;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%2850, 50, 50, 0.7%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        /* Block content text styling */
+        .container p, .container h1, .container h2, .container h3 {
+            color: #333333 !important; /* Keep text neutral and readable */
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="{% url 'task_list' %}">Can you do it?</a>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="{% url 'task_list' %}">Task Master</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -26,6 +111,10 @@
         {% block content %}
         {% endblock %}
     </div>
+
+    <footer>
+        <p>&copy; 2024 Task Master | <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a></p>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
